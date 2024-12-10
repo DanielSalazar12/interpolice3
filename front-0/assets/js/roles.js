@@ -1,23 +1,19 @@
-let api = "
-https://interpolice2.onrender.com/api/rol/";
+let api = "https://interpolice2.onrender.com/api/rol/";
 let contenido = document.querySelector("#contenido");
 let btnNuevo = document.querySelector("#btnNuevo");
 let frmCrearRol = document.querySelector("#frmCrearRol");
 let nombre = document.querySelector("#nombreRol");
 let accion = "";
 
-const CrearRol = new bootstrap.Modal(
-  document.getElementById("CrearRol")
-);
+const CrearRol = new bootstrap.Modal(document.getElementById("CrearRol"));
 
-
-btnNuevo.addEventListener('click', () => {
+btnNuevo.addEventListener("click", () => {
   nombre.value = "";
 
-  accion = 'crear';
+  accion = "crear";
 
   CrearRol.show();
-})
+});
 const on = (element, event, selector, handler) => {
   element.addEventListener(event, (e) => {
     if (e.target.closest(selector)) {
@@ -25,8 +21,6 @@ const on = (element, event, selector, handler) => {
     }
   });
 };
-
-
 
 function listartodos() {
   fetch(api + "listartodos")
@@ -60,9 +54,7 @@ function editar(id, nombreRol) {
   idForm = id;
 }
 
-
-
-frmCrearRol.addEventListener('submit', (e) => {
+frmCrearRol.addEventListener("submit", (e) => {
   e.preventDefault();
 
   console.log("rewte45y");
@@ -82,10 +74,9 @@ frmCrearRol.addEventListener('submit', (e) => {
       .then((res) => {
         console.log("Inserción exitosa");
         console.log(res);
-
       })
       .catch((error) => {
-        console.error('Error al agregar el rol:', error);
+        console.error("Error al agregar el rol:", error);
       });
   } else if (accion == "editar") {
     e.preventDefault();
@@ -104,11 +95,10 @@ frmCrearRol.addEventListener('submit', (e) => {
         location.reload();
       })
       .catch((error) => {
-        console.error('Error al editar el usuario:', error);
+        console.error("Error al editar el usuario:", error);
       });
   }
 });
-
 
 on(document, "click", ".btnBorrar", (e) => {
   let fila = e.target.parentNode.parentNode;
@@ -127,16 +117,14 @@ on(document, "click", ".btnBorrar", (e) => {
         if (res.status === "ok") {
           fila.remove();
         } else {
-          alert('No se pudo eliminar el rol. Intenta nuevamente.');
+          alert("No se pudo eliminar el rol. Intenta nuevamente.");
         }
       })
       .catch((error) => {
-        console.error('Error al eliminar el rol:', error);
-        alert('Hubo un error al intentar eliminar el rol.');
+        console.error("Error al eliminar el rol:", error);
+        alert("Hubo un error al intentar eliminar el rol.");
       });
   }
 });
-
-
 
 listartodos();

@@ -1,5 +1,4 @@
-let api = "
-https://interpolice2.onrender.com/api/ciudadano/";
+let api = "https://interpolice2.onrender.com/api/ciudadano/";
 let contenido = document.querySelector("#contenido");
 let nombre = document.querySelector("#nombreCitizen");
 let apellido = document.querySelector("#apellidosCitizen");
@@ -7,17 +6,14 @@ let apodo = document.querySelector("#apodoCitizen");
 let email = document.querySelector("#emailCitizen");
 let foto = document.querySelector("#fotoCitizen");
 let fechaNace = document.querySelector("#fechaNace");
-let especieCitizen = document.querySelector('#especieCitizen');
+let especieCitizen = document.querySelector("#especieCitizen");
 let frmCrearCitizen = document.querySelector("#frmCrearCitizen");
 let btnNuevo = document.querySelector("#btnNuevo");
 let accion = "";
 
-
 const CrearCitizen = new bootstrap.Modal(
   document.getElementById("CrearCitizen")
 );
-
-
 
 btnNuevo.addEventListener("click", () => {
   nombre.value = "";
@@ -31,11 +27,9 @@ btnNuevo.addEventListener("click", () => {
   CrearCitizen.show();
 });
 
-
 frmCrearCitizen.addEventListener("submit", (e) => {
   e.preventDefault();
-  if (accion == 'crear') {
-
+  if (accion == "crear") {
     fetch(api + "agregarCiudadano", {
       method: "POST",
       headers: {
@@ -61,7 +55,6 @@ frmCrearCitizen.addEventListener("submit", (e) => {
         console.error("Error:", error);
       });
   } else if (accion == "editar") {
-
     fetch(api + "editarporid/" + idForm, {
       method: "PUT",
 
@@ -85,7 +78,6 @@ frmCrearCitizen.addEventListener("submit", (e) => {
         location.reload();
       });
   }
-
 });
 
 function listartodos() {
@@ -103,11 +95,19 @@ function listartodos() {
           <td>${ciudadano.apellidos}</td> 
           <td>${ciudadano.apodo}</td>
           <td>${ciudadano.email}</td>
-          <td><img src="${ciudadano.foto}" alt="Foto" width="50" height="50"></td>  
+          <td><img src="${
+            ciudadano.foto
+          }" alt="Foto" width="50" height="50"></td>  
           <td>${ciudadano.fechanace.slice(0, 10)}</td>
           <td>${ciudadano.especie_ciudadano_idespecie_ciudadano}</td>
           <td><button class="btnBorrar btn btn-danger" id="btnBorrar"><i class="bi bi-trash"></i></button></td>
-          <td><button class="btnEditar btn btn-secondary" Onclick="editar(${ciudadano.id},'${ciudadano.nombre}','${ciudadano.apellidos}','${ciudadano.apodo}','${ciudadano.email}','${ciudadano.foto}','${ciudadano.fechanace}',${ciudadano.especie_ciudadano_idespecie_ciudadano})"><i class="bi bi-pencil-square"></i></button></td>
+          <td><button class="btnEditar btn btn-secondary" Onclick="editar(${
+            ciudadano.id
+          },'${ciudadano.nombre}','${ciudadano.apellidos}','${
+          ciudadano.apodo
+        }','${ciudadano.email}','${ciudadano.foto}','${ciudadano.fechanace}',${
+          ciudadano.especie_ciudadano_idespecie_ciudadano
+        })"><i class="bi bi-pencil-square"></i></button></td>
         </tr>`;
         contenido.innerHTML += fila;
       });
@@ -142,19 +142,26 @@ on(document, "click", ".btnBorrar", (e) => {
         if (res.status === "ok") {
           fila.remove();
         } else {
-          alert('No se pudo eliminar el ciudadano. Intenta nuevamente.');
+          alert("No se pudo eliminar el ciudadano. Intenta nuevamente.");
         }
       })
       .catch((error) => {
-        console.error('Error al eliminar el ciudadano:', error);
-        alert('Hubo un error al intentar eliminar el ciudadano.');
+        console.error("Error al eliminar el ciudadano:", error);
+        alert("Hubo un error al intentar eliminar el ciudadano.");
       });
   }
 });
 
-
-function editar(idCitizen, nombreCitizen, apellidoCitizen, apodoCitizen, emailCitizen, fotoCitizen, fechaNacimientoCitizen, idEspecieCitizen) {
-
+function editar(
+  idCitizen,
+  nombreCitizen,
+  apellidoCitizen,
+  apodoCitizen,
+  emailCitizen,
+  fotoCitizen,
+  fechaNacimientoCitizen,
+  idEspecieCitizen
+) {
   nombre.value = nombreCitizen;
   apellido.value = apellidoCitizen;
   apodo.value = apodoCitizen;
@@ -164,20 +171,15 @@ function editar(idCitizen, nombreCitizen, apellidoCitizen, apodoCitizen, emailCi
   especieCitizen.value = idEspecieCitizen;
   console.log(nombreCitizen);
 
-
   accion = "editar";
   CrearCitizen.show();
   idForm = idCitizen;
 }
 
-
-
 function eliminar(id) {
-
   accion = "editar";
   CrearCitizen.show();
   idForm = id;
 }
-
 
 listartodos();

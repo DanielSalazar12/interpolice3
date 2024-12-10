@@ -1,5 +1,4 @@
-let api = "
-https://interpolice2.onrender.com/api/registroDelito/";
+let api = "https://interpolice2.onrender.com/api/registroDelito/";
 let contenido = document.querySelector("#contenido");
 let btnNuevo = document.querySelector("#btnNuevo");
 let descripcion = document.querySelector("#descripcionRegistroDelito");
@@ -74,7 +73,7 @@ frmDescripcionRegistroDelito.addEventListener("submit", (e) => {
       .catch((error) => {
         console.error("Error al agregar el rol:", error);
       });
-  }/*  else if (accion == "editar") {
+  } /*  else if (accion == "editar") {
     e.preventDefault();
     fetch(api + "editarEspecie/" + idForm, {
       method: "PUT",

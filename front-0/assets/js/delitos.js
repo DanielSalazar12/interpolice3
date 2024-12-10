@@ -1,5 +1,4 @@
-let api = "
-https://interpolice2.onrender.com/api/delito/";
+let api = "https://interpolice2.onrender.com/api/delito/";
 let delito = document.querySelector("#delito");
 let contenido = document.querySelector("#contenido");
 let frmCrearDelito = document.querySelector("#frmCrearDelito");

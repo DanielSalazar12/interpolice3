@@ -1,5 +1,4 @@
-let api = "
-https://interpolice2.onrender.com/api/usuarios/";
+let api = "https://interpolice2.onrender.com/api/usuarios/";
 
 let contenido = document.querySelector("#contenido");
 let frmCrearUsuarios = document.querySelector("#frmCrearUsuario");
@@ -131,18 +130,24 @@ on(document, "click", ".btnBorrar", (e) => {
         if (res.status === "ok") {
           fila.remove();
         } else {
-          alert('No se pudo eliminar el usuario. Intenta nuevamente.');
+          alert("No se pudo eliminar el usuario. Intenta nuevamente.");
         }
       })
       .catch((error) => {
-        console.error('Error al eliminar el usuario:', error);
-        alert('Hubo un error al intentar eliminar el usuario.');
+        console.error("Error al eliminar el usuario:", error);
+        alert("Hubo un error al intentar eliminar el usuario.");
       });
   }
 });
 
 let idForm = "";
-function editar(id, nombreUsuario, rolUsuario, apellidoUsuario, passwordUsuario) {
+function editar(
+  id,
+  nombreUsuario,
+  rolUsuario,
+  apellidoUsuario,
+  passwordUsuario
+) {
   nombre.value = nombreUsuario;
   rol.value = rolUsuario;
   apellido.value = apellidoUsuario;
@@ -152,6 +157,5 @@ function editar(id, nombreUsuario, rolUsuario, apellidoUsuario, passwordUsuario)
   CrearUsuarios.show();
   idForm = id;
 }
-
 
 listartodos();
