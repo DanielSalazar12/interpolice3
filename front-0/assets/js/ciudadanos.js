@@ -1,4 +1,5 @@
-let api = "http://localhost:4102/api/ciudadano/";
+let api = "
+https://interpolice2.onrender.com/api/ciudadano/";
 let contenido = document.querySelector("#contenido");
 let nombre = document.querySelector("#nombreCitizen");
 let apellido = document.querySelector("#apellidosCitizen");

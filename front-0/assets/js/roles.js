@@ -1,4 +1,5 @@
-let api = "http://localhost:4102/api/rol/";
+let api = "
+https://interpolice2.onrender.com/api/rol/";
 let contenido = document.querySelector("#contenido");
 let btnNuevo = document.querySelector("#btnNuevo");
 let frmCrearRol = document.querySelector("#frmCrearRol");

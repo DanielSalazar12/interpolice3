@@ -1,4 +1,5 @@
-let api = "http://localhost:4102/api/usuarios/";
+let api = "
+https://interpolice2.onrender.com/api/usuarios/";
 
 let contenido = document.querySelector("#contenido");
 let frmCrearUsuarios = document.querySelector("#frmCrearUsuario");

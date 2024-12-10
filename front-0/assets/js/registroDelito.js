@@ -1,4 +1,5 @@
-let api = "http://localhost:4102/api/registroDelito/";
+let api = "
+https://interpolice2.onrender.com/api/registroDelito/";
 let contenido = document.querySelector("#contenido");
 let btnNuevo = document.querySelector("#btnNuevo");
 let descripcion = document.querySelector("#descripcionRegistroDelito");
